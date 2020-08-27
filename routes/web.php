@@ -20,6 +20,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/contact','ContactController@show');
+Route::post('/contact/send','ContactController@mail');
+
+Route::get('/about', function () {
+    return view('about_us');
+});
+
+Route::get('/working', function () {
+    return view('how_it_works');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('verify/{email}/{token}','Auth\RegisterController@verifyUser')->name('verify');
 
