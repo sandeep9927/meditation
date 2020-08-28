@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\UserProfile;
 use Illuminate\Http\Request;
+use Auth;
 
 class UserProfileController extends Controller
 {
@@ -46,9 +47,7 @@ class UserProfileController extends Controller
      */
     public function show()
     {
-        // $profile = UserProfile::find();
         return view('profiles.profile');
-
     }
 
     /**
@@ -57,9 +56,10 @@ class UserProfileController extends Controller
      * @param  \App\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        
+    public function edit()
+    {   
+        // $user = Auth::user();
+        return view('profiles.edit_profile')->with('user',Auth::user());
     }
 
     /**
@@ -69,9 +69,27 @@ class UserProfileController extends Controller
      * @param  \App\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserProfile $userProfile)
+    public function update(Request $request)
     {
-        //
+        if($request->hasFile('image') && $request->image->isValid()){
+            $extension = $request->image->extension();
+            $filename = time()."_.".$extension;
+            $request->image->move(public_path('images'),$filename);
+        }else{
+            $filename = "no-image.jpg";
+        }
+        $user = Auth::user();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->date_of_birth = $request->input('dob');
+        $user->password = $request->input('password');
+        $user->image = $filename;
+        if($request->has('password')){
+            $user->password = bcrypt($request->password);
+        }
+        $user->save();
+        
+        return redirect('profile')->with('message','You Profile Successfully Updated');
     }
 
     /**

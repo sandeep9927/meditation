@@ -25,7 +25,7 @@ Route::get('verify/{email}/{token}','Auth\RegisterController@verifyUser')->name(
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::get('profile','UserProfileController@show');
-Route::get('profile/{id}/edit','UserProfileController@edit');
-Route::post('profile/update','UserProfileController@update');
-Route::view('edit','profiles.edit_profile');
+Route::get('user/profile/{id}','UserProfileController@edit');
+Route::post('profile/update/{id}','UserProfileController@update');

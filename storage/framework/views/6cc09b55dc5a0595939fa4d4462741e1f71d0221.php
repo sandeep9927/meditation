@@ -21,14 +21,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="<?php echo e(url('home')); ?>">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="<?php echo e(url('profiles')); ?>">Profile</a>
+            
             <a class="nav-item nav-link" href="<?php echo e(url('post/create')); ?>">Create Post</a>
             
             <?php if(Route::has('login')): ?>
             
                 <?php if(auth()->guard()->check()): ?>
                     <a class="nav-item nav-link" href="<?php echo e(url('/home')); ?>">|<?php echo e(Auth::user()->name); ?></a>
-                   
+                    <a class="nav-item nav-link" href="<?php echo e(url('profile')); ?>">Profile</a>
                       <a class="nav-item nav-link" href="<?php echo e(route('logout')); ?>"
                          onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">

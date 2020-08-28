@@ -21,15 +21,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="{{url('home')}}">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="{{url('profiles')}}">Profile</a>
+            
             <a class="nav-item nav-link" href="{{url('post/create')}}">Create Post</a>
             {{-- <a class="nav-item nav-link disabled" href="{{url('login')}}">Login</a>
             <a class="nav-item nav-link disabled" href="{{url('users/create')}}">SingUp</a> --}}
             @if (Route::has('login'))
             
                 @auth
-                    <a class="nav-item nav-link" href="{{ url('/home') }}">|{{ Auth::user()->name }}</a>
-                   
+                    <a class="nav-item nav-link" href="{{ url('/home') }}">|{{ Auth::user()->name}}</a>
+                    <a class="nav-item nav-link" href="{{url('profile')}}">Profile</a>
                       <a class="nav-item nav-link" href="{{ route('logout') }}"
                          onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">
