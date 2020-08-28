@@ -35,11 +35,16 @@ Route::get('/admin', function () {
     return view('admin_panel');
 });
 
+Route::get('/admin_login', function () {
+    return view('admin_login');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('verify/{email}/{token}','Auth\RegisterController@verifyUser')->name('verify');
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::get('profile','UserProfileController@show');
 Route::get('profile/{id}/edit','UserProfileController@edit');
 Route::post('profile/update','UserProfileController@update');
