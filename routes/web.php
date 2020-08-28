@@ -31,6 +31,10 @@ Route::get('/working', function () {
     return view('how_it_works');
 });
 
+Route::get('/admin', function () {
+    return view('admin_panel');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('verify/{email}/{token}','Auth\RegisterController@verifyUser')->name('verify');
 
