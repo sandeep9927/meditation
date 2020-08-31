@@ -5,7 +5,7 @@
     <!-- JQuery -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>@yield('title')</title>
-   <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
 </head>
 <body>
     <div>
@@ -93,22 +93,9 @@
             <a class="tw-ic">
               <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
-            <!-- Google +-->
-            {{-- <a class="gplus-ic">
-              <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!--Linkedin -->
-            <a class="li-ic">
-              <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!--Instagram-->
-            <a class="ins-ic">
-              <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!--Pinterest-->
-            <a class="pin-ic">
-              <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
-            </a> --}}
+            <a class="nav-item nav-link" href="{{url('contact')}}">Contact Us</a>
+            <a class="nav-item nav-link" href="/about">About Us</a>
+            <a class="nav-item nav-link" href="/working">How It Works</a>
           </div>
         </div>
         <!-- Grid column -->
