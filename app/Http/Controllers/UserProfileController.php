@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\UserProfile;
 use Illuminate\Http\Request;
 use Auth;
-
+use Illuminate\Support\Facades\Hash;
 class UserProfileController extends Controller
 {
     /**
@@ -85,7 +85,7 @@ class UserProfileController extends Controller
         $user->password = $request->input('password');
         $user->image = $filename;
         if($request->has('password')){
-            $user->password = bcrypt($request->password);
+            $user->password = Hash::make($request->password);
         }
         $user->save();
         

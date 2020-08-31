@@ -17,8 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->bigInteger('role_id')->unsigned();
             $table->string('name');
-            $table->date('date_of_birth');
-            $table->text('image');
+            $table->date('date_of_birth')->nullable();
+            $table->text('image')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('user_status')->nullable();
             $table->string('email')->unique();
             $table->string('verifyToken')->nullable();
             $table->boolean('status')->default(0);
@@ -27,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('provider_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            // $table->foreign('role_id')->references('id')->on('user_roles')->onDelete('cascade');
+            // $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 

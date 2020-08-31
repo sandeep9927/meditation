@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\UserProfile;
-
+use App\Role;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','verifyToken','provider_id',
+        'name', 'email', 'password','verifyToken','provider_id','status','image','role_id',
     ];
 
     /**
@@ -40,5 +40,10 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne('App\UserProfile');
+    }
+    
+    public function role()
+    {
+        return $this->hasMany('App\Role',);
     }
 }
