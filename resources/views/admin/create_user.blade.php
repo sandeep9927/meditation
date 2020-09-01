@@ -6,7 +6,7 @@
 <p class="alert alert-success">{{Session('message')}}</p>
   @endif
   <h2>Create User</h2>
-<form action="{{url('store')}}" method="post">
+<form action="{{url('store')}}" method="post" enctype="multipart/form-data">
   @csrf
   <div class="form-group">
     <label for="">Name</label>

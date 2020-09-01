@@ -43,7 +43,7 @@
               <tr>
                 <th scope="col">S.No</th>
                 <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
+                
                 <th scope="col">Email ID</th>
                 <th scope="col">Mobile No.</th>
                 <th scope="col">Status</th>
@@ -52,18 +52,19 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($writers as $writer)
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark@rediff.com</td>
-                <td>9871654</td>
-                <td>Inactive</td>
-                <td>26/01/2020</td>
-                <td><a href="">Edit</a></td>
+              <td>{{$writer->id}}</td>
+              <td>{{$writer->name}}</td>
+              <td>{{$writer->email}}</td>
+              <td>{{$writer->mobile}}</td>
+              <td>{{$writer->user_status}}</td>
+              <td>{{$writer->updated_at}}</td>
+              <td><a class="btn btn-secondary" href="{{url("writer_mgmt/$writer->id/edit")}}">Edit</a> |
+              <a class="btn btn-danger" href="{{url("writer_mgmt/$writer->id/delete")}}">Delete</a></td>
+                
               </tr>
-            
-              
+              @endforeach
             </tbody>
           </table>
           

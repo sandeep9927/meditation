@@ -6,26 +6,26 @@
 <p class="alert alert-success">{{Session('message')}}</p>
   @endif
   <h2>Edit User</h2>
-<form action="{{url("site_user/$user->id")}}" method="post" enctype="multipart/form-data">
+<form action="{{url("writer_mgmt/$writer_edit->id/update")}}" method="post" enctype="multipart/form-data">
   @csrf 
   
   <div class="form-group">
     <label for="">Name</label>
-  <input type="text" class="form-control" name="username"  value="{{$user->name}}">
+  <input type="text" class="form-control" name="username"  value="{{$writer_edit->name}}">
     
   </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" value="{{$user->email}}">
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" value="{{$writer_edit->email}}">
             
           </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" name="password" value="{{$user->password}}">
+          <input type="password" class="form-control" name="password" value="{{$writer_edit->password}}">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Confirm Password</label>
-            <input type="password" class="form-control" name="password2" value="{{$user->password}}">
+            <input type="password" class="form-control" name="password2" value="{{$writer_edit->password}}">
           </div>
           <label for="">Select Role</label><br>
           <div class="form-check form-check-inline">
@@ -58,11 +58,11 @@
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Monile Number</label>
-            <input type="text" class="form-control" name="number" value="{{$user->mobile}}">
+            <input type="text" class="form-control" name="number" value="{{$writer_edit->mobile}}">
           </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Upload Image</label>
-            <input type="file" class="form-control" name="image" value="{{$user->image}}">
+            <input type="file" class="form-control" name="image" value="{{$writer_edit->image}}">
             </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

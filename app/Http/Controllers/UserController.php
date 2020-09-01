@@ -106,9 +106,10 @@ class UserController extends Controller
         $user_upadte->role_id = $request->input('role');
         $user_upadte->user_status = $request->input('status');
         $user_upadte->mobile = $request->input('number');
-        // dd($user_upadte);
+        $user_upadte->image = $filename;
+        dd($user_upadte);
         $user_upadte->save();
-        return redirect('site_user/update')->with('message','User Successfully Updated');
+        return redirect("site_user/".$id."/edit")->with('message','User Successfully Updated');
     }
     public function site_user()
     {

@@ -114,3 +114,8 @@ Route::get('cms_user','UserController@cms_user');
 
 Route::get('admin','UserController@Admin');
 Route::post('dashboard','UserController@AdminLogin');
+
+Route::get('writer_mgmt','AdminController@writer');
+Route::get('writer_mgmt/{id}/edit','AdminController@WriterEdit');
+Route::post('writer_mgmt/{id}/update','AdminController@WriterUpdate');
+Route::get('writer_mgmt/{id}/delete','AdminController@WriterUpdate');
